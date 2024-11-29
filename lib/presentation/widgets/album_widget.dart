@@ -31,7 +31,13 @@ class _AlbumWidgetState extends State<AlbumWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Text(widget.album.title),
+            Text(
+              widget.album.title,
+              style: const TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
             SizedBox(
               height: widget.height * 0.60,
               child: BlocBuilder<PhotoBloc, PhotosState>(
