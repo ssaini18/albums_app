@@ -1,5 +1,6 @@
 import 'package:albums_app/bloc/albums_bloc/album_bloc.dart';
 import 'package:albums_app/bloc/photos_bloc/photos_bloc.dart';
+import 'package:albums_app/data/database_helper.dart';
 import 'package:albums_app/data/providers/album_provider.dart';
 import 'package:albums_app/data/providers/photo_provider.dart';
 import 'package:albums_app/data/repositories/album_repository.dart';
@@ -39,12 +40,16 @@ class MyApp extends StatelessWidget {
         child: MultiBlocProvider(
           providers: [
             BlocProvider(
-              create: (context) =>
-                  AlbumBloc(albumRepository: context.read<AlbumRepository>()),
+              create: (context) => AlbumBloc(
+                albumRepository: context.read<AlbumRepository>(),
+                databaseHelper: DatabaseHelper.instance,
+              ),
             ),
             BlocProvider(
-              create: (context) =>
-                  PhotoBloc(photoRepository: context.read<PhotoRepository>()),
+              create: (context) => PhotoBloc(
+                photoRepository: context.read<PhotoRepository>(),
+                databaseHelper: DatabaseHelper.instance,
+              ),
             ),
           ],
           child: const AlbumsPage(),
