@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/models/album.dart';
 import '../../data/models/photo.dart';
+import 'cached_image_widget.dart';
 
 class AlbumWidget extends StatefulWidget {
   final double height;
@@ -55,8 +56,8 @@ class _AlbumWidgetState extends State<AlbumWidget> {
                       List<Photo> images = state.imagesByAlbum['$albumId']!;
                       Photo image = images[index % 3];
 
-                      return Image.network(
-                        image.url,
+                      return CachedImageWidget(
+                        url: image.url,
                         width: itemWidth,
                         height: 100,
                       );
