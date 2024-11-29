@@ -6,10 +6,10 @@ import '../../data/models/photo.dart';
 part 'photos_events.dart';
 part 'photos_state.dart';
 
-class ImageBloc extends Bloc<PhotosEvents, PhotosState> {
+class PhotoBloc extends Bloc<PhotosEvents, PhotosState> {
   final PhotoRepository photoRepository;
   final Map<String, List<Photo>> _images = {};
-  ImageBloc({required this.photoRepository}) : super(PhotosInitial()) {
+  PhotoBloc({required this.photoRepository}) : super(PhotosInitial()) {
     on<PhotosFetched>(_fetchImages);
   }
 
