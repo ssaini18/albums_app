@@ -70,9 +70,13 @@ class _AlbumWidgetState extends State<AlbumWidget> {
                     itemCount:
                         1000, //given high value to imitate infinite scroll
                   );
-                } else {
+                } else if (state is PhotosLoadingError) {
                   return const Center(
                     child: Text("Error loading images"),
+                  );
+                } else {
+                  return const Center(
+                    child: Icon(Icons.image),
                   );
                 }
               }),

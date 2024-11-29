@@ -43,9 +43,13 @@ class _AlbumsPageState extends State<AlbumsPage> {
               },
             ),
           );
-        } else {
+        } else if (state is AlbumLoadingError) {
           return const Center(
             child: Text('Error loading albums'),
+          );
+        } else {
+          return const Center(
+            child: Text('Your Albums list will appear soon'),
           );
         }
       }),
