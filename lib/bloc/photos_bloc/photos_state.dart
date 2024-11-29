@@ -12,7 +12,7 @@ final class PhotosLoaded extends PhotosState {
   PhotosLoaded({required this.imagesByAlbum});
 }
 
-final class ImageError extends PhotosState {
+final class PhotosLoadingError extends PhotosState {
   final String error;
-  ImageError(this.error);
+  PhotosLoadingError(this.error);
 }
