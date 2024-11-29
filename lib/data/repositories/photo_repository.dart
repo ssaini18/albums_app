@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:albums_app/data/models/photo.dart';
 import 'package:albums_app/data/providers/photo_provider.dart';
 
-class ImageRepository {
+class PhotoRepository {
   final PhotoProvider photoProvider;
-  const ImageRepository({required this.photoProvider});
+  const PhotoRepository({required this.photoProvider});
 
   Future<List<Photo>> fetchImages(String albumId) async {
     try {
